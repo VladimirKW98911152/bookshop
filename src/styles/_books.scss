@@ -1,0 +1,146 @@
+.books {
+  flex: 1;
+  
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xxl;
+
+    @media (max-width: $breakpoint-desktop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.book-card {
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: $box-shadow-medium;
+    transform: translateY(-5px);
+  }
+
+  .book-cover {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background-color: $light-gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary-gray;
+    
+    &::before {
+      content: '📖 Обложка книги';
+      font-size: $font-size-md;
+    }
+  }
+
+  .book-info {
+    padding: $spacing-lg;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-title {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $primary-black;
+    margin-bottom: $spacing-sm;
+    line-height: 1.3;
+  }
+
+  .book-authors {
+    font-size: $font-size-md;
+    color: $primary-gray;
+    margin-bottom: $spacing-md;
+    font-style: italic;
+  }
+
+  .book-rating {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+
+    .stars {
+      color: $yellow-star;
+      font-size: $font-size-lg;
+      letter-spacing: 2px;
+    }
+
+    .reviews {
+      font-size: $font-size-sm;
+      color: $primary-gray;
+    }
+  }
+
+  .book-description {
+    font-size: $font-size-sm;
+    color: $primary-gray;
+    line-height: 1.5;
+    margin-bottom: $spacing-md;
+    flex: 1;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .book-price {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $primary-black;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.load-more-btn {
+  display: block;
+  margin: 0 auto $spacing-xxl;
+  padding: $spacing-lg $spacing-xxl;
+  background-color: $white;
+  border: 2px solid $primary-purple;
+  color: $primary-purple;
+  font-size: $font-size-md;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $primary-purple;
+    color: $white;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.content {
+  display: flex;
+  margin-top: $spacing-xl;
+  
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+  }
+}

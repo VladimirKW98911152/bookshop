@@ -1,0 +1,121 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md 0;
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  z-index: 1000;
+  border-bottom: 1px solid $border-color;
+
+  .logo {
+    font-size: $font-size-xxl;
+    font-weight: 700;
+    color: $primary-black;
+    
+    span {
+      text-transform: lowercase;
+      font-size: $font-size-xl;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: $spacing-xl;
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $primary-gray;
+      font-weight: 500;
+      font-size: $font-size-md;
+      letter-spacing: 0.5px;
+      padding: $spacing-sm $spacing-md;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $primary-black;
+        background-color: $background-gray;
+      }
+
+      &.active {
+        color: $primary-black;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .icons {
+    display: flex;
+    gap: $spacing-lg;
+    align-items: center;
+
+    .icon-wrapper {
+      position: relative;
+      cursor: pointer;
+      padding: $spacing-sm;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $background-gray;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: $primary-purple;
+        color: $white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: $font-size-xs;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .header {
+    flex-wrap: wrap;
+    padding: $spacing-sm 0;
+    
+    .logo {
+      font-size: $font-size-xl;
+      
+      span {
+        font-size: $font-size-lg;
+      }
+    }
+    
+    .nav {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      margin-top: $spacing-md;
+      gap: $spacing-md;
+      
+      a {
+        font-size: $font-size-sm;
+        padding: $spacing-xs $spacing-sm;
+      }
+    }
+    
+    .icons {
+      gap: $spacing-md;
+    }
+  }
+}

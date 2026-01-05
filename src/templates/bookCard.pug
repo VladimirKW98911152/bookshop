@@ -1,0 +1,18 @@
+div.book-card
+  img.book-cover(src=volumeInfo.imageLinks?.thumbnail || './images/placeholder.jpg', alt=volumeInfo.title)
+  .book-info
+    h3.book-title #{volumeInfo.title}
+    p.book-authors #{volumeInfo.authors?.join(', ') || 'Unknown Author'}
+    .book-rating
+      - let stars = Math.floor(volumeInfo.averageRating || 0);
+      each star in [1,2,3,4,5]
+        span.star(class=star <= stars ? 'filled' : '')
+      if volumeInfo.ratingsCount
+        span.reviews (#{volumeInfo.ratingsCount} reviews)
+    p.book-description #{volumeInfo.description?.substring(0, 150) + '...'}
+    .book-price
+      if saleInfo.listPrice
+        span #{saleInfo.listPrice.amount} #{saleInfo.listPrice.currencyCode}
+      else
+        span Price not available
+    button.buy-btn(data-id=id) Buy now
